@@ -28,6 +28,10 @@ function login() {
     }
 }
 
+function register() {
+    window.location.href = 'registration.html';
+}
+
 // DOM - LOGIN
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure the login page is shown initially, and the main screen is hidden
