@@ -8,15 +8,17 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+// Use logger and parsers
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static('public'));
+
+// Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set up the route handlers
 app.use('/', indexRouter);
-app.use(express.static('public'));
 app.use('/users', usersRouter);
 
 module.exports = app;

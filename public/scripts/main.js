@@ -15,14 +15,17 @@ function showSections(section_name) {
 }
 
 // This function is triggered when the user logs in
+// This function is triggered when the user logs in
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Check if username and password are correct
+    // Check if the credentials match the hardcoded 'guest' username and password
     if (username === 'guest' && password === 'guest') {
-        // Hide the login page and show the main content
+        // Hide the login page
         document.getElementById('login').classList.add('hidden');
+        
+        // Show the main content (main screen)
         document.getElementById('main-screen').classList.remove('hidden');
 
         // Show the home section by default
