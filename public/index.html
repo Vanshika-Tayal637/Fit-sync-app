@@ -4,48 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitSync</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
+    <!-- Login Page -->
     <section id="login" class="login-area">
         <div class="login-box">
-            <h1> WELCOME TO FITSYNC - YOUR FITTNESS TRACKER</h1>
+            <h1>WELCOME TO FITSYNC - YOUR FITNESS TRACKER</h1>
             <input id="username" type="text" placeholder="Username"/>
             <input id="password" type="password" placeholder="Password"/>
-            <button type="button" onclick="login()" class="'login-button">Login</button>
+            <button type="button" onclick="login()" class="login-button">Login</button>
         </div>
     </section>
-    <div id="main-screen" class="hidden"></div>
-    <nav class="'navbar">
-        <h1 class="navbar-heading">FitSync</h1>
-        <div class="navbar-button">
-            <button type="button" onclick="showSections('home')" class="nav-button">Home</button>
-            <button type="button" onclick="showSections('workouts')" class="nav-button">Workouts</button>
-            <button type="button" onclick="showSections('tracker')" class="nav-button">Tracker</button>
-        </div>
-    </nav>
-    <section id="home" class="section1">
-      <div class="home-section">
-        <h2 class="home-section-title">Your personalized workout plans!</h2>
-        <p class="home-section-text">Track your workout progress and reach your fittness goals with the FitSync app!</p>
-      </div>
-    </section>
-    <section id="workouts" class="section2">
-      <h3 class="workout-section">Workout Categories</h3>
-      <div class="workout-categories">
-        <button type="button" onclick="WorkoutSelection('Shoulders')" class="body-part">Shoulders</button>
-        <button type="button" onclick="WorkoutSelection('Lower arms')" class="body-part">Lower arms</button>
-        <button type="button" onclick="WorkoutSelection('Upper arms')" class="body-part">Upper arms</button>
-        <button type="button" onclick="WorkoutSelection('Cardio')" class="body-part">Cardio</button>
-        <button type="button" onclick="WorkoutSelection('Chest')" class="body-part">Chest</button>
-        <button type="button" onclick="WorkoutSelection('Waist')" class="body-part">Waist</button>
-        <button type="button" onclick="WorkoutSelection('Upper legs')" class="body-part">Upper Legs</button>
-        <button type="button" onclick="WorkoutSelection('Lower legs')" class="body-part">Lower Legs</button>
-        <button type="button" onclick="WorkoutSelection('Back')" class="body-part">Back</button>
 
-      </div>
-      </section>
+    <!-- Main Screen (Hidden initially) -->
+    <div id="main-screen" class="hidden">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <h1 class="navbar-heading">FitSync</h1>
+            <div class="navbar-button">
+                <button type="button" onclick="showSections('home')" class="nav-button">Home</button>
+                <button type="button" onclick="showSections('workouts')" class="nav-button">Workouts</button>
+                <button type="button" onclick="showSections('tracker')" class="nav-button">Tracker</button>
+            </div>
+        </nav>
 
+        <!-- Home Section -->
+        <section id="home" class="section1">
+            <div class="home-section">
+                <h2 class="home-section-title">Your personalized workout plans!</h2>
+                <p class="home-section-text">Track your workout progress and reach your fitness goals with the FitSync app!</p>
+            </div>
+        </section>
 
+        <!-- Workouts Section -->
+        <section id="workouts" class="section2">
+            <h3 class="workout-section">Workout Categories</h3>
+            <div class="workout-categories">
+                <button type="button" onclick="WorkoutSelection('Shoulders')" class="body-part">Shoulders</button>
+                <button type="button" onclick="WorkoutSelection('Lower arms')" class="body-part">Lower arms</button>
+                <button type="button" onclick="WorkoutSelection('Upper arms')" class="body-part">Upper arms</button>
+                <button type="button" onclick="WorkoutSelection('Cardio')" class="body-part">Cardio</button>
+                <button type="button" onclick="WorkoutSelection('Chest')" class="body-part">Chest</button>
+                <button type="button" onclick="WorkoutSelection('Waist')" class="body-part">Waist</button>
+                <button type="button" onclick="WorkoutSelection('Upper legs')" class="body-part">Upper Legs</button>
+                <button type="button" onclick="WorkoutSelection('Lower legs')" class="body-part">Lower Legs</button>
+                <button type="button" onclick="WorkoutSelection('Back')" class="body-part">Back</button>
+            </div>
+        </section>
+    </div>
 
+    <script src="/scripts/main.js"></script>
 </body>
 </html>
