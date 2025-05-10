@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 let workoutSelected = '';
 
 // This function is responsible for showing a specific section and hiding others.
@@ -14,29 +13,22 @@ function showSections(section_name) {
     document.getElementById(section_name).classList.remove('hidden');
 }
 
-// This function is triggered when the user logs in
-// This function is triggered when the user logs in
+// LOGIN
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Check if the credentials match the hardcoded 'guest' username and password
+    // Check if username and password are correct
     if (username === 'guest' && password === 'guest') {
-        // Hide the login page
-        document.getElementById('login').classList.add('hidden');
-        
-        // Show the main content (main screen)
-        document.getElementById('main-screen').classList.remove('hidden');
-
-        // Show the home section by default
-        showSections('home');
+        // Redirect to the FitSync page
+        window.location.href = 'fitSync.html'; // Replace with your actual FitSync page URL
     } else {
         // If the credentials are incorrect, show an alert
         alert("Enter a valid username and password!");
     }
 }
 
-// Wait for the DOM to be fully loaded before showing the login page
+// DOM - LOGIN
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure the login page is shown initially, and the main screen is hidden
     document.getElementById('login').classList.remove('hidden');
