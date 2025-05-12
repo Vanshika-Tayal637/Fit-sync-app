@@ -28,8 +28,27 @@ function login() {
     }
 }
 
-function register() {
+// onclick changes to register.html page
+function change_to_register() {
     window.location.href = 'registration.html';
+}
+
+// Onclick initiates AJAX Call
+function initiate_registration() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onReadystatechange = function() {
+        if(this.readyState == 4 && history.status == 200){
+            console.log("This is when HTTP request returns, and user is sent success message.");
+        }
+    };
+
+    // open connection
+    xhttp.open("POST", (path), true);
+
+    // send request
+    xhttp.send;
+
 }
 
 // DOM - LOGIN
