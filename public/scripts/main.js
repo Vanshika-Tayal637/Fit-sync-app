@@ -40,10 +40,14 @@ function initiate_registration() {
     // AJAX Call
     var xhttp = new XMLHttpRequest();
 
-    // What to o when HTTP response received
+    // What to do when HTTP response received
     xhttp.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200){
             console.log("This is when HTTP request returns, and user is sent success message.");
+            const response = JSON.parse(this.responseText);
+            document.getElementById('message').textContent = response.message;
+            // Here, the page should also change to the main menu (since they created an account).
+            // There, it will give them a welcome prompt, instead of here, but this will do for now.
         }else{
             console.log("Something went wrong :(");
         }

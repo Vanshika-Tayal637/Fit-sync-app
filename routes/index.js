@@ -10,24 +10,22 @@ router.get('/', function(req, res, next) {
 
 // router function which waits for registration requests.
 router.post('/register', (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, email } = req.body;
     console.log(`Received: ${username}`);
 
     // Hash password code go here:
 
 
-
     let database_response = false;
 
-    // INSERT CODE TO PUT INTO DATABASE. Switch to true once success received.
+    // Query commands to send data to database.
+    // If done successfully, switch database_response to true so reply is sent back to client.
 
 
     if(database_response === true){
       res.status(200).json({ message: "Registration successful!" });
-
-    }
-    else {
-    res.status(500).json({message: "Unsuccessful"});
+    }else {
+    res.status(500).json({ message: "Unsuccessful" });
     }
 
 });
