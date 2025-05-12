@@ -43,24 +43,19 @@ function initiate_registration() {
     // What to do when HTTP response received
     xhttp.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200){
-            console.log("This is when HTTP request returns, and user is sent success message.");
             const response = JSON.parse(this.responseText);
             document.getElementById('message').textContent = response.message;
-            // Here, the page should also change to the main menu (since they created an account).
-            // There, it will give them a welcome prompt, instead of here, but this will do for now.
+            // This is what occurs if the request is successfully returned.
+            // Can make the page change to main menu, initiating welcome new user message
         }else{
             console.log("Something went wrong :(");
+            // Sends back to user there was an error
         }
     };
 
-    // Open connection
-    xhttp.open("POST", ("/register"), true);
-
-    // Tells server the request body contains JSON data
-    xhttp.setRequestHeader("Content-Type", "application/json");
-
-    // Send request
-    xhttp.send(JSON.stringify(data));
+    xhttp.open("POST", ("/register"), true); // Setting up the request type
+    xhttp.setRequestHeader("Content-Type", "application/json"); // Tells server the request body contains JSON data
+    xhttp.send(JSON.stringify(data)); // Send request
 
 }
 
