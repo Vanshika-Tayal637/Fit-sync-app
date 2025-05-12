@@ -7,17 +7,28 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../views/login.html'));
 });
 
+
+// router function which waits for registration requests.
 router.post('/register', (req, res) => {
-  const { username, email, password } = req.body;
+    const { username, password } = req.body;
+    console.log(`Received: ${username}`);
 
-  console.log('Received registration:', { username, email, password });
+    // Hash password code go here:
 
-  // Add database logic here later
 
-  // For now, just respond with success if username isn't empty
-  if (username !== "") {
-    res.send("Registration received :)");
-  }
+
+    let database_response = false;
+
+    // INSERT CODE TO PUT INTO DATABASE. Switch to true once success received.
+
+
+    if(database_response === true){
+      res.status(200).json({ message: "Registration successful!" });
+
+    }
+    else {
+    res.status(500).json({message: "Unsuccessful"});
+    }
 
 });
 

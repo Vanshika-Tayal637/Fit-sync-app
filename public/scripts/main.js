@@ -28,26 +28,35 @@ function login() {
     }
 }
 
-// onclick changes to register.html page
-function change_to_register() {
-    window.location.href = 'registration.html';
-}
-
-// Onclick initiates AJAX Call
 function initiate_registration() {
+
+    // Create data object and place info from HTML forms inside
+    const data = {
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value,
+        email: document.getElementById('email').value
+    };
+
+    // AJAX Call
     var xhttp = new XMLHttpRequest();
 
-    xhttp.onReadystatechange = function() {
-        if(this.readyState == 4 && history.status == 200){
+    // What to o when HTTP response received
+    xhttp.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200){
             console.log("This is when HTTP request returns, and user is sent success message.");
+        }else{
+            console.log("Something went wrong :(");
         }
     };
 
-    // open connection
-    xhttp.open("POST", (path), true);
+    // Open connection
+    xhttp.open("POST", ("/register"), true);
 
-    // send request
-    xhttp.send;
+    // Tells server the request body contains JSON data
+    xhttp.setRequestHeader("Content-Type", "application/json");
+
+    // Send request
+    xhttp.send(JSON.stringify(data));
 
 }
 
