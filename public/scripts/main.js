@@ -13,7 +13,7 @@ function showSections(section_name) {
     document.getElementById(section_name).classList.remove('hidden');
 }
 
-// LOGIN
+// Runs when a user attempts to login
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -28,6 +28,7 @@ function login() {
     }
 }
 
+// Runs when a user attempts to register
 function initiate_registration() {
 
     // Create data object and place info from HTML forms inside
