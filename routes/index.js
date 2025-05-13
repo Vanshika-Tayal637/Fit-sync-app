@@ -31,6 +31,7 @@ router.post('/register', async (req, res) => {
     let database_response = false;
 
     // Query commands to send data to database. (send HashedPassword, not password)
+
     // If done successfully, switch database_response to true so reply is sent back to client.
 
     if(database_response === true){
