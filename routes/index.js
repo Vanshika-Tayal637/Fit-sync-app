@@ -9,6 +9,16 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../views/login.html'));
 });
 
+// accessing database connection
+router.get('/result', function(req, res){
+  req.pool.getConnection(function(err,connection){
+    if(err) {
+      res.sendStatus(500);
+      return;
+    }
+  });
+});
+
 // Hashing Function - Async as it uses await
 async function HashPassword(PlainPassword) {
   const hash = await bcrypt.hash(PlainPassword, 13);
