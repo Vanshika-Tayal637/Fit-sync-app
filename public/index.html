@@ -4,15 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - FitSync</title>
-     <link rel="stylesheet" href="stylesheets/index.css">
+<<<<<<< HEAD
 
+=======
+    <style>
+          <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    h1 {
+      position: absolute;
+      top: 40px;
+      font-size: 2.5rem;
+      text-align: center;
+      width: 100%;
+      color: #ffffffcc;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 16px;
+      padding: 40px 30px;
+      width: 320px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px 16px;
+      margin: 12px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .login-box input::placeholder {
+      color: #ffffffaa;
+    }
+
+    .login-box input:focus {
+      background: rgba(255, 255, 255, 0.3);
+      outline: none;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00c9a7;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #00b89c;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 400px) {
+      .login-box {
+        width: 90%;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        top: 20px;
+      }
+    }
+  </style>
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+>>>>>>> 612f25b (n)
 </head>
 <body>
 
     <div class="login-box">
         <h1>FitSync-Your Fitness Buddy!</h1>
         <input id="username" type="text" placeholder="Username"/>
-            
+
         <input id="password" type="password" placeholder="Password"/>
         <button type="button" onclick="login()">Login</button>
         <button type="button" onclick="window.location.href = 'registration.html';">Register</button> <!-- Removed the linked function, instead just linked here- Tom  -->
