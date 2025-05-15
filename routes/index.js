@@ -33,6 +33,7 @@ router.post('/register', async (req, res) => {
     const email = req.body.email;
 
     console.log(`Received: ${username}`);
+    console.log("test");
 
     // Calls HashPassword function to hash password
     let HashedPassword = await HashPassword(password);

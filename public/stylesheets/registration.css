@@ -92,4 +92,5 @@ button:hover {
     height: 40px;
     overflow: scroll;
     text-align: center;
+    border: #333;
 }

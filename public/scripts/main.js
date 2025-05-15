@@ -1,3 +1,5 @@
+const { format } = require("morgan");
+
 let workoutSelected = '';
 
 // This function is responsible for showing a specific section and hiding others.
@@ -28,6 +30,11 @@ function login() {
     }
 }
 
+// welcome Function upon successful registration
+function welcome(username){
+    //
+}
+
 // Runs when a user attempts to register
 function initiate_registration() {
 
@@ -53,10 +60,12 @@ function initiate_registration() {
         if(this.readyState === 4 && this.status === 200){
             const response = JSON.parse(this.responseText);
             document.getElementById('message').textContent = response.message;
-            // This is what occurs if the request is successfully returned.
-            // Can make the page change to main menu, initiating welcome new user message
+            window.location.href = "home.html";
+            welcome(data.username);
         }else{
             console.log("Something went wrong :(");
+            const response = "Database not yet responding (500 returned not 200)";
+            document.getElementById('message').textContent = response;
             // Sends back to user there was an error
         }
     };
@@ -67,9 +76,12 @@ function initiate_registration() {
 
 }
 
-// DOM - LOGIN
-document.addEventListener('DOMContentLoaded', function() {
-    // Ensure the login page is shown initially, and the main screen is hidden
-    document.getElementById('login').classList.remove('hidden');
-    document.getElementById('main-screen').classList.add('hidden');
-});
+// DOM - LOGIN -
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Ensure the login page is shown initially, and the main screen is hidden.
+
+//     // document.getElementById('login').classList.remove('hidden');
+//     // document.getElementById('main-screen').classList.add('hidden');
+
+// });
