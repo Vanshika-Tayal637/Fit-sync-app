@@ -31,6 +31,13 @@ function login() {
 // Runs when a user attempts to register
 function initiate_registration() {
 
+    // Check if user ticked checkbox
+    const checkbox = document.getElementById('agreementcheck');
+    if (!checkbox.checked){
+        alert("Please agree to User Agreement to Register");
+        return;
+    }
+
     // Create data object and place info from HTML forms inside
     const data = {
         username: document.getElementById('username').value,

@@ -86,3 +86,10 @@ button:hover {
     font-size: 14px;
     color: #d9534f;
 }
+
+#scrollbox {
+    width: 300px;
+    height: 40px;
+    overflow: scroll;
+    text-align: center;
+}
