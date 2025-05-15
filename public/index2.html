@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitSync</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/index2.css">
 </head>
 <body>
     <!-- Login Section (Hidden by default until successful login) -->
-    <section id="login" class="login-area" class="hidden">
+    <section id="login" class="login-area hidden">
+
         <div class="login-box">
             <h1>WELCOME TO FITSYNC - YOUR FITNESS TRACKER</h1>
             <input id="username" type="text" placeholder="Username"/>
@@ -17,7 +18,7 @@
             <button type="button" onclick="register()" class="login-button">Register</button>
         </div>
     </section>
-    
+
     <!-- Main Content (Initially Hidden) -->
     <div id="main-screen" class="hidden">
         <nav class="navbar">
@@ -28,12 +29,6 @@
                 <button type="button" onclick="showSections('tracker')" class="nav-button">Tracker</button>
             </div>
         </nav>
-        <section id="home" class="section1">
-            <div class="home-section">
-                <h2 class="home-section-title">Your personalized workout plans!</h2>
-                <p class="home-section-text">Track your workout progress and reach your fitness goals with the FitSync app!</p>
-            </div>
-        </section>
         <section id="workouts" class="section2">
             <h3 class="workout-section">Workout Categories</h3>
             <div class="workout-categories">
