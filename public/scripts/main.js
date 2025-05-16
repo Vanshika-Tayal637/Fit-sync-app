@@ -20,20 +20,62 @@ function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Check if username and password are correct
-    if (username === 'guest' && password === 'guest') {
-        // Redirect to the FitSync page
-        window.location.href = 'fitSync.html'; // Replace with your actual FitSync page URL
-    } else {
-        // If the credentials are incorrect, show an alert
-        alert("Enter a valid username and password!");
-    }
+    if (!username || !password) {
+        alert('Please enter username and password');
+        return;
+      }
+
+      fetch('/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      })
+      .then(async res => {
+        if (res.ok) {
+          alert('Login successful!');
+          window.location.href = '/home.html';  // Redirect after successful login
+        } else {
+          const errorText = await res.text();
+          alert('Login failed: ' + errorText);
+        }
+      })
+      .catch(err => {
+        console.error('Login error:', err);
+        alert('An error occurred during login.');
+      });
 }
 
-// welcome Function upon successful registration
-function welcome(username){
-    //
+function register() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const email = document.getElementById('email').value;
+
+  if (!username || !password || !email) {
+      alert('Please enter all boxes!');
+      return;
+    }
+
+    fetch('/users/registration', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password, email })
+    })
+    .then(async res => {
+      if (res.ok) {
+        alert('Registration successful!');
+        window.location.href = '/home.html';  // Redirect after successful login
+      } else {
+        const errorText = await res.text();
+        alert('Login failed: ' + errorText);
+      }
+    })
+    .catch(err => {
+      console.error('Login error:', err);
+      alert('Registration successful!');
+      window.location.href = '/home.html';  // Redirect after successful login
+    });
 }
+
 
 // Runs when a user attempts to register
 function initiate_registration() {
