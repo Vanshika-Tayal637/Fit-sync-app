@@ -45,12 +45,21 @@ router.post('/login', function(req, res) {
   });
 });
 
+// Hashing Function - Async as it uses await
+async function HashPassword(PlainPassword) {
+  const hash = await bcrypt.hash(PlainPassword, 13);
+  return hash;
 
+}
 
-router.post('/registration', function(req, res) {
+router.post('/registration', async (req, res) => {
   var username = req.body.username;
   var password = req.body.password;
   var email = req.body.email;
+
+  // Calls HashPassword function to hash password
+  let HashedPassword = await HashPassword(password);
+  console.log("the hashed password is " + HashedPassword);
 
   var checkQuery = 'SELECT * FROM users WHERE username = ?';
   db.query(checkQuery, [username], function(err, results) {
@@ -64,7 +73,7 @@ router.post('/registration', function(req, res) {
     }
 
     var insertQuery = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
-    db.query(insertQuery, [username, password, email], function(err) {
+    db.query(insertQuery, [username, HashedPassword, email], function(err) {
       if (err) {
         console.error('Insert error:', err);
         return res.status(500).json({ message: 'Failed to register user' });
@@ -79,7 +88,6 @@ router.post('/registration', function(req, res) {
 //   if (!req.session || !req.session.username) {
 //     return res.redirect('/');
 //   }
-
 
 
 module.exports = router;

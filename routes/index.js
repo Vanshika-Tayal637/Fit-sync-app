@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-const bcrypt = require('bcrypt'); //ensures bcrypt package is accessible
+const bcrypt = require('bcrypt'); // Ensures bcrypt package is accessible
 
 // GET login page
 router.get('/', function(req, res, next) {
@@ -20,11 +20,11 @@ router.get('/result', function(req, res){
 });
 
 // Hashing Function - Async as it uses await
-async function HashPassword(PlainPassword) {
-  const hash = await bcrypt.hash(PlainPassword, 13);
-  return hash;
-
-}
+// async function HashPassword(PlainPassword) {
+//   const hash = await bcrypt.hash(PlainPassword, 13);
+//   return hash;
+//
+//}
 
 // router function which waits for registration requests.
 router.post('/register', async (req, res) => {
@@ -52,5 +52,21 @@ router.post('/register', async (req, res) => {
     }
 
 });
+
+
+// router function which checks login details
+router.post('', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  // retrieve actual login credidentials from SQL
+
+  // Add inbetween comments
+
+
+
+
+})
+
 
 module.exports = router;

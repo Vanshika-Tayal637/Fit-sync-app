@@ -50,6 +50,13 @@ function register() {
   const password = document.getElementById('password').value;
   const email = document.getElementById('email').value;
 
+    // Check if user ticked checkbox
+    const checkbox = document.getElementById('agreementcheck');
+    if (!checkbox.checked){
+        alert("Please agree to User Agreement to Register");
+        return;
+    }
+
   if (!username || !password || !email) {
       alert('Please enter all boxes!');
       return;
@@ -75,7 +82,6 @@ function register() {
       window.location.href = '/home.html';  // Redirect after successful login
     });
 }
-
 
 // Runs when a user attempts to register
 function initiate_registration() {
