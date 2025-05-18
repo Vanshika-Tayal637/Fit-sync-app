@@ -66,7 +66,6 @@ router.post('/login', function(req, res) {
 });
 
 
-// Hashing Function - Async as it uses await
 async function HashPassword(PlainPassword) {
   const hash = await bcrypt.hash(PlainPassword, 13);
   return hash;

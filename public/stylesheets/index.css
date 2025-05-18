@@ -136,6 +136,33 @@ body {
     margin-right: auto;
 }
 
+/* scrollbox */
+
+.scrollbox {
+    height: 100px;
+    width: 300px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.checkbox-row {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .checkbox-row label {
+    margin-left: 8px;
+  }
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
 /* Home Section */
 .home-section-title {
     font-size: 28px;

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>FitSync Registration</title>
-    <link rel="stylesheet" href="stylesheets/registration.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
 <!-- External CSS file -->
 </head>
 <body>
-    <div class="container">
+    <div class="login-box">
         <h2>FitSync-Your Fitness Buddy!</h2>
         <form>
             <label for="username">Username</label>
@@ -19,12 +19,21 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
 
-            <div id="scrollbox">I agree to the terms and conditions. </div>
+            <div id="scrollbox"><br>
+                I agree to the terms and conditions. Hello!<br>
+                I agree to the terms and conditions. Hello!<br>
+                I agree to the terms and conditions. Hello!<br>
+                I agree to the terms and conditions. Hello!<br>
+                I agree to the terms and conditions. Hello!<br>
+                I agree to the terms and conditions. Hello!<br>
+              </div>
 
-            <div> <!-- Div so checkbox appears next to label and not above-->
+            <div>
                 <input type="checkbox" id="agreementcheck" name="Agree">
-                <label for="agreementcheck">I agree to the above</label>
+                <label for="agreementcheck" style="margin-left: 8px;">I agree to the above<br></label>
             </div>
+
+            <br>
 
             <button type="submit" onclick="register()">Register</button>
         </form>
