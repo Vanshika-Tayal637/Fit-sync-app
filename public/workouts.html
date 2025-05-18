@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>FitSync Workouts</title>
-    <link rel="stylesheet" href="stylesheets/index2.css"> <!-- Ensure this CSS has styling for workouts -->
+    <link rel="stylesheet" href="stylesheets/home.css">
 </head>
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <h1 class="navbar-heading">FitSync</h1>
-        <div class="navbar-button">
-            <button type="button" onclick="showSections('home')" class="nav-button">Home</button>
-            <button type="button" onclick="showSections('workouts')" class="nav-button">Workouts</button>
-            <button type="button" onclick="showSections('tracker')" class="nav-button">Tracker</button>
-        </div>
-    </nav>
+    <div class="topnav">
+        <div class="user-info">Logged in as: <strong><%= username %></strong></div>
+        <a href="tracker.html">Tracker</a>
+        <a href="workouts.html">Workout</a>
+        <a class="active" href="home.html">Home</a>
+      </div>
 
     <!-- Workout Categories Section -->
-    <section id="workouts" class="section2">
-        <h3 class="workout-section">Workout Categories</h3>
+    <section id="workouts" class="section1">
+        <h2 class="workout-section">Workout Categories</h2>
         <div class="workout-categories">
             <button type="button" onclick="WorkoutSelection('Shoulders')" class="body-part">Shoulders</button>
             <button type="button" onclick="WorkoutSelection('Lower arms')" class="body-part">Lower arms</button>

@@ -7,9 +7,13 @@
 
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
-    overflow: hidden;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  overflow: hidden;
+  z-index: 1000;
 }
 
 
@@ -36,19 +40,24 @@
   }
 
 
+.user-info {
+  color: #f2f2f2;
+  font-size: 16px;
+}
+
 /* Body Styling */
-body {
+
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #333;
-        background-image: url(../images/image.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         padding-top: 60px; /* Space for fixed navbar */
+        background-image: url(../images/image.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
       }
 
 
@@ -58,7 +67,7 @@ body {
     text-align: center;
     top: 50%;
     left: 50%;
-    max-width: 600px;
+    max-width: 800px;
     margin: 80px auto 0; /* adds space from top nav */
     background: rgba(255, 255, 255, 0.9);
     border-radius: 12px;
@@ -80,3 +89,19 @@ body {
     color: #555;
 }
 
+/* buttons */
+.body-part {
+  font-size: 18px;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.body-part:hover {
+  background-color: #2980b9;
+}

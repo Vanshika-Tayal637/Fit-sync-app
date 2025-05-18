@@ -37,6 +37,7 @@ router.post('/login', function(req, res) {
     var storedPassword = results[0].password;
 
     if (password === storedPassword) {
+      // req.session.username = username;
       res.send('Login successful');
     } else {
       res.status(401).send('Invalid password');
@@ -73,6 +74,11 @@ router.post('/registration', function(req, res) {
     });
   });
 });
+
+// router.get('/home', function(req, res) {
+//   if (!req.session || !req.session.username) {
+//     return res.redirect('/');
+//   }
 
 
 
