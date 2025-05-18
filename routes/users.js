@@ -36,16 +36,35 @@ router.post('/login', function(req, res) {
       return res.status(401).send('User not found');
     }
 
-    var storedPassword = results[0].password;
+    // clear password login **
+    // var storedPassword = results[0].password;
 
-    if (password === storedPassword) {
-      // req.session.username = username;
-      res.send('Login successful');
-    } else {
-      res.status(401).send('Invalid password');
-    }
+    // if (password === storedPassword) {
+
+    //   res.send('Login successful');
+    // } else {
+    //   res.status(401).send('Invalid password');
+
+    // hashed password login **
+
+      var storedHash = results[0].password;
+
+      bcrypt.compare(password, storedHash, function(err, isMatch) {
+        if (err) {
+          console.error(err);
+          return res.status(500).send('Error comparing passwords');
+        }
+
+        if (isMatch) {
+          // req.session.username = username;
+          res.send('Login successful');
+        } else {
+          res.status(401).send('Invalid password');
+        }
+      });
   });
 });
+
 
 // Hashing Function - Async as it uses await
 async function HashPassword(PlainPassword) {

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-const bcrypt = require('bcrypt'); // Ensures bcrypt package is accessible
+// const bcrypt = require('bcrypt'); // Ensures bcrypt package is accessible
 
 // GET login page
 router.get('/', function(req, res, next) {
