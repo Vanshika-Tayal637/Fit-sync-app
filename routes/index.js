@@ -20,11 +20,11 @@ router.get('/result', function(req, res){
 });
 
 // Hashing Function - Async as it uses await
-// async function HashPassword(PlainPassword) {
-//   const hash = await bcrypt.hash(PlainPassword, 13);
-//   return hash;
-//
-//}
+ async function HashPassword(PlainPassword) {
+   const hash = await bcrypt.hash(PlainPassword, 13);
+   return hash;
+
+}
 
 // router function which waits for registration requests.
 router.post('/register', async (req, res) => {

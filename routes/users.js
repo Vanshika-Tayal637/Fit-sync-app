@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
+const bcrypt = require('bcrypt'); // Ensures bcrypt package is accessible
+
 var db = mysql.createConnection({
   database: 'fitsync',
 });
