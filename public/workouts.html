@@ -7,13 +7,15 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <div class="topnav">
-        <div class="user-info">Logged in as: <strong><%= username %></strong></div>
-        <a href="tracker.html">Tracker</a>
-        <a href="workouts.html">Workout</a>
-        <a href="home.html">Home</a>
-      </div>
+    <!-- Navigation Bar --><!--NEEDS TO BE CHANGED-->
+    <nav class="navbar">
+        <h1 class="navbar-heading">FitSync</h1>
+        <div class="navbar-button">
+            <button type="button" onclick="showSections('home')" class="nav-button">Home</button>
+            <button type="button" onclick="showSections('workouts')" class="nav-button">Workouts</button>
+            <button type="button" onclick="showSections('tracker')" class="nav-button">Tracker</button>
+        </div>
+    </nav>
 
     <!-- Workout Categories Section -->
     <section id="workouts" class="section1">
