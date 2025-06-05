@@ -6,7 +6,7 @@ var mysql = require('mysql');
 
 var dbConnectionPool = mysql.createPool({
     host: 'localhost',
-    database: 'blog'
+    database: 'fitsync'
 });
 
 var app = express();
