@@ -78,8 +78,8 @@ router.post('/registration', async (req, res) => {
   var email = req.body.email;
 
   // Calls HashPassword function to hash password
-  let HashedPassword = await HashPassword(password);
-  console.log("the hashed password is " + HashedPassword);
+  let hashedPassword = await HashPassword(password);
+  console.log("the hashed password is " + hashedPassword);
 
   var checkQuery = 'SELECT * FROM users WHERE username = ?';
   db.query(checkQuery, [username], function(err, results) {
@@ -93,7 +93,7 @@ router.post('/registration', async (req, res) => {
     }
 
     var insertQuery = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
-    db.query(insertQuery, [username, HashedPassword, email], function(err) {
+    db.query(insertQuery, [username, hashedPassword, email], function(err) {
       if (err) {
         console.error('Insert error:', err);
         return res.status(500).json({ message: 'Failed to register user' });
