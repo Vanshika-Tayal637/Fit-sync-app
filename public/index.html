@@ -3,29 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitSync</title>
+    <title>Login - FitSync</title>
+    <link rel="stylesheet" href="stylesheets/index.css">
 </head>
+
+
 <body>
-    <div id="login">
-      <h1>FitSync Login</h1>
-      <input type="text" id="username" placeholder="Username" />
-      <input type="password" id="password" placeholder="Password" />
-      <button onclick="login()">Login</button>
+
+    <div class="login-box">
+        <h1>FitSync-Your Fitness Buddy!</h1>
+        <input id="username" type="text" placeholder="Username"/>
+
+        <input id="password" type="password" placeholder="Password"/>
+        <button type="button" onclick="login()">Login</button>
+        <button type="button" onclick="window.location.href = 'registration.html';">Register</button> <!-- Removed the linked function, instead just linked here- Tom  -->
     </div>
-  
-    <div id="main-screen" clasås="hidden">
-      <h1>Welcome to FitSync</h1>
-      <nav>
-        <button onclick="showSections('home')">Home</button>
-        <button onclick="showSections('workouts')">Workouts</button>
-        <button onclick="showSections('tracker')">Tracker</button>
-      </nav>
-  
-      <div id="home">This is the Home page</div>
-      <div id="workouts" class="hidden">Workout Page</div>
-      <div id="tracker" class="hidden">Tracker Page</div>
-    </div>
-  
-    <script src="/scripts/index.js"></script>
-  </body>
+    <script src="/scripts/main.js"></script>
+</body>
 </html>

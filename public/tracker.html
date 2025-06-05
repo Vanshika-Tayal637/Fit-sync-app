@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FitSync Registration</title>
+    <link rel="stylesheet" href="stylesheets/home.css">
+</head>
+<body>
+    <div class="topnav">
+        <div class="user-info">Logged in as: <strong><%= username %></strong></div>
+        <a href="tracker.html">Tracker</a>
+        <a href="workouts.html">Workout</a>
+        <a href="home.html">Home</a>
+      </div>
+      <section id="workouts" class="section1">
+        <h2 class="workout-section">Workout Tracker</h2>
+        <div class="workout-categories">
+            <button type="button" onclick="Workout('Calendar')" class="body-part">Calendar</button>
+            <button type="button" onclick="Workout('WeeklySummary')" class="body-part">Weekly Summary</button>
+        </div>
+    </section>
+
+    <section id="workouts" class="section1">
+        <h2 class="workout-section">Body Tracker</h2>
+        <div class="workout-categories">
+            <button type="button" onclick="BodyMeasure('Weight')" class="body-part">Weight</button>
+            <button type="button" onclick="BodyMeasure('BodyFat')" class="body-part">Body Fat</button>
+        </div>
+    </section>
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

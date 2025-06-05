@@ -1,0 +1,107 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #2980b9;
+    color: black;
+  }
+
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #3498db;
+    color: white;
+  }
+
+
+.user-info {
+  color: #f2f2f2;
+  font-size: 16px;
+}
+
+/* Body Styling */
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 60px; /* Space for fixed navbar */
+        background-image: url(../images/image.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+
+
+/* Home Section Styling */
+ .section1 {
+    padding: 60px 20px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    max-width: 800px;
+    margin: 80px auto 0; /* adds space from top nav */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.home-section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Paragraph Styling */
+.home-section-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* buttons */
+.body-part {
+  font-size: 18px;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.body-part:hover {
+  background-color: #2980b9;
+}
