@@ -36,17 +36,6 @@ router.post('/login', function(req, res) {
       return res.status(401).send('User not found');
     }
 
-    // clear password login **
-    // var storedPassword = results[0].password;
-
-    // if (password === storedPassword) {
-
-    //   res.send('Login successful');
-    // } else {
-    //   res.status(401).send('Invalid password');
-
-    // hashed password login **
-
       var storedHash = results[0].password;
 
       bcrypt.compare(password, storedHash, function(err, isMatch) {
@@ -65,49 +54,41 @@ router.post('/login', function(req, res) {
   });
 });
 
+  async function HashPassword(PlainPassword) {
+    const hash = await bcrypt.hash(PlainPassword, 13);
+    return hash;
+  }
 
-async function HashPassword(PlainPassword) {
-  const hash = await bcrypt.hash(PlainPassword, 13);
-  return hash;
+  router.post('/registration', async (req, res) => {
+    var username = req.body.username;
+    var password = req.body.password;
+    var email = req.body.email;
 
-}
+    // Calls HashPassword function to hash password
+    let hashedPassword = await HashPassword(password);
+    console.log("the hashed password is " + hashedPassword);
 
-router.post('/registration', async (req, res) => {
-  var username = req.body.username;
-  var password = req.body.password;
-  var email = req.body.email;
-
-  // Calls HashPassword function to hash password
-  let hashedPassword = await HashPassword(password);
-  console.log("the hashed password is " + hashedPassword);
-
-  var checkQuery = 'SELECT * FROM users WHERE username = ?';
-  db.query(checkQuery, [username], function(err, results) {
-    if (err) {
-      console.error('Database error:', err);
-      return res.status(500).json({ message: 'Database error' });
-    }
-
-    if (results.length > 0) {
-      return res.status(409).json({ message: 'Username already exists' });
-    }
-
-    var insertQuery = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
-    db.query(insertQuery, [username, hashedPassword, email], function(err) {
+    var checkQuery = 'SELECT * FROM users WHERE username = ?';
+    db.query(checkQuery, [username], function(err, results) {
       if (err) {
-        console.error('Insert error:', err);
-        return res.status(500).json({ message: 'Failed to register user' });
+        console.error('Database error:', err);
+        return res.status(500).json({ message: 'Database error' });
       }
 
-      res.status(200).json({ message: 'Registration successful' });
+      if (results.length > 0) {
+        return res.status(409).json({ message: 'Username already exists' });
+      }
+
+      var insertQuery = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
+      db.query(insertQuery, [username, hashedPassword, email], function(err) {
+        if (err) {
+          console.error('Insert error:', err);
+          return res.status(500).json({ message: 'Failed to register user' });
+        }
+
+        res.status(200).json({ message: 'Registration successful' });
+      });
     });
   });
-});
-
-// router.get('/home', function(req, res) {
-//   if (!req.session || !req.session.username) {
-//     return res.redirect('/');
-//   }
-
 
 module.exports = router;

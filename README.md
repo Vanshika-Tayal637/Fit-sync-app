@@ -17,8 +17,13 @@ We recommend using the 'Shared Repository Model (Branch & Pull)' to collaborate 
 
 To start mysql server
 - service mysql start
-- mysql 
+- mysql
 
 1. Drop DATABASE fitsync; (if you have existing fitsync database)
 2. Read in the agreed upon .sql file `mysql < db/my_project.sql`
 3.
+
+Features & Functionality:
+-User login & Registration
+-Able to search for specific workouts from categories
+-
