@@ -80,5 +80,6 @@ function registration() {
 }
 
 async function WorkoutSelection(category){
-  //API fetch code can go here. 
+  //API fetch code can go here.
+  
 }
