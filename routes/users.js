@@ -21,6 +21,10 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+/* ABOVE IS JUST SETUP CODE */
+
+let cur_user = null; // hardcoded for testing - will change.
+
 router.post('/login', function(req, res) {
   var username = req.body.username;
   var password = req.body.password;
@@ -47,6 +51,7 @@ router.post('/login', function(req, res) {
         if (isMatch) {
           // req.session.username = username;
           res.send('Login successful');
+          cur_user = username;
         } else {
           res.status(401).send('Invalid password');
         }
@@ -91,4 +96,33 @@ router.post('/login', function(req, res) {
     });
   });
 
+
+
+// SEND WORKOUTS TO SAVED_EXERCISES TABLE
+router.post('/save_exercise', (req, res) => {
+  const exercise = req.body;
+
+  console.log("User, ", cur_user, ", wants to save exercise ", exercise);
+
+  // MYSQL QUERIES GO HERE
+  // DATA SHOULD BE SENT TO SAVED_EXERCISES TABLE
+
+  res.status(200).send('Exercise received and would be saved here.'); // once queries in place, this will be nested in if statement
+
+});
+
+// GET A USERS SAVED WORKOUTS (bringing up list)
+router.get('/retrieve_exercises', (req, res) => {
+
+});
+
+// DELETE A SAVED WORKOUT (initiated from list)
+router.delete('/delete_exercise', (req, res) => {
+
+});
+
+// UPDATE PROFILE INFORMATION
+router.patch('/amend_profile', (req, res) => {
+
+});
 module.exports = router;

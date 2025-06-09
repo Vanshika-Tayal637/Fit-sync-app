@@ -1,4 +1,6 @@
 
+
+
 // This function is responsible for showing a specific section and hiding others.
 function showSections(section_name) {
     const sections_list = ['home', 'workouts', 'tracker'];
@@ -79,7 +81,75 @@ function registration() {
 
 }
 
-async function WorkoutSelection(category){
-  //API fetch code can go here.
-  
+// USER SAVES WORKOUT
+function saveWorkout(exercise){
+  console.log("Saving workouts", exercise);
+
+  // AJAX CALL TO SERVER
+    var xhttp = new XMLHttpRequest();
+
+    // What to do when HTTP response received
+    xhttp.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200){
+            alert("Workout Saved Successfully")
+        }else{ // Sends back to user there was an error
+            console.log("Something went wrong :(");
+        }
+    };
+
+    xhttp.open("POST", ("/users/save_exercise"), true); // Setting up the request type
+    xhttp.setRequestHeader("Content-Type", "application/json"); // Tells server the request body contains JSON data
+    xhttp.send(JSON.stringify(exercise)); // Send request
+
 }
+
+
+// Shows list of Workouts user can choose
+async function WorkoutSelection(category) {
+  const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category.toLowerCase()}?limit=10&offset=0`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': '0a5d32844bmshb4aef2c2ae6b1e0p1a3d1fjsn02ac7c03610f',
+      'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
+    }
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const exercises = await response.json();
+    console.log('Fetched exercises:', exercises);
+
+    const list = document.getElementById('workout-list');
+    list.innerHTML = '';
+    document.getElementById('workout-results').style.display = 'block';
+
+    if (!Array.isArray(exercises) || exercises.length === 0) {
+      list.innerHTML = '<li>No exercises found.</li>';
+      return;
+    }
+
+    exercises.forEach(ex => {
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `
+        <strong>${ex.name}</strong><br>
+        <img src="${ex.gifUrl}" alt="${ex.name}" width="200"><br>
+        Body Part: ${ex.bodyPart}<br>
+      `;
+
+      const button = document.createElement('button');
+      button.textContent = 'Save';
+      button.onclick = () => saveWorkout(ex);
+      listItem.appendChild(button);
+
+      list.appendChild(listItem);
+    });
+
+  } catch (error) {
+    console.error('Fetch error:', error);
+    document.getElementById('workout-results').style.display = 'block';
+    document.getElementById('workout-list').innerHTML = '<li>Error loading exercises.</li>';
+  }
+}
+
+

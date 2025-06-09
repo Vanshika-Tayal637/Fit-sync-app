@@ -105,3 +105,32 @@
 .body-part:hover {
   background-color: #2980b9;
 }
+
+/*remove below 5 if doesn't work?*/
+
+#workout-results {
+  text-align: left;        /* list items align left */
+  margin-top: 2rem;        /* a bit more breathing room */
+}
+
+#workout-list {
+  list-style: disc inside; /* show bullets */
+  padding-left: 1rem;      /* indent items */
+}
+
+#workout-list li {
+  margin-bottom: 0.5rem;   /* space between exercises */
+}
+
+.workout-categories {
+  position: relative;
+  z-index: 2;   /* bring buttons above the results panel */
+}
+
+#workout-results {
+  position: relative;
+  z-index: 1;   /* keep the list below the buttons */
+  margin-top: 1rem;
+  text-align: left;
+}
+
