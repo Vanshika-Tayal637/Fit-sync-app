@@ -1,6 +1,4 @@
 
-
-
 // This function is responsible for showing a specific section and hiding others.
 function showSections(section_name) {
     const sections_list = ['home', 'workouts', 'tracker'];
@@ -87,6 +85,7 @@ function saveWorkout(exercise){
 
   // AJAX CALL TO SERVER
     var xhttp = new XMLHttpRequest();
+    xhttp.withCredentials = true;
 
     // What to do when HTTP response received
     xhttp.onreadystatechange = function() {
@@ -102,7 +101,6 @@ function saveWorkout(exercise){
     xhttp.send(JSON.stringify(exercise)); // Send request
 
 }
-
 
 // Shows list of Workouts user can choose
 async function WorkoutSelection(category) {
@@ -152,4 +150,41 @@ async function WorkoutSelection(category) {
   }
 }
 
+// USER ATTEMPTS TO ACCESS THEIR WORKOUT LIST
+function checkworkoutlist() {
+    console.log("test");
 
+    var xhttp = new XMLHttpRequest();
+    xhttp.withCredentials = true;
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            console.log("Successfully retrieved data");
+
+            var data = JSON.parse(this.responseText);
+            var username = data.username;
+            var exercises = data.exercises;
+
+            // Update the heading
+            document.querySelector("#workout-results h3").textContent = username + "'s exercises!";
+
+            // Get the UL element
+            var list = document.getElementById("UsersWorkoutList");
+            list.innerHTML = ""; // Clear existing items
+
+            // Add each exercise to the list
+            exercises.forEach(function (item) {
+                var li = document.createElement("li");
+                li.textContent = item; // Adjust if each item is an object (e.g. item.name)
+                list.appendChild(li);
+            });
+
+        } else {
+            console.log("Something went wrong :(");
+        }
+    };
+
+    xhttp.open("GET", "/users/retrieve_exercises", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(); // No data sent for GET
+}

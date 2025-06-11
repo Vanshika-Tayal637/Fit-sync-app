@@ -14,6 +14,15 @@ var app = express();
 const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
 
+
+const session = require('express-session');
+
+app.use(session({
+  secret: 'ajd9283js!#LK@pwjwqz398sjqpq$!#zjx',
+  resave: false,
+  saveUninitialized: false
+}));
+
 // Middleware to attach db pool
 app.use(function(req, res, next){
     req.pool = dbConnectionPool;
